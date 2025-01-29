@@ -1,0 +1,40 @@
+.container{
+    display: flex;        /* フレックスボックスを使用 */
+    flex-direction: column; /* 子要素を縦に並べる */
+    align-items: center;  /* 横方向の中心に配置 */
+    justify-content: center; /* 縦方向の中心に配置 */
+    height: 100vh;  
+}
+
+.thema, .message {
+    font-weight: bold; /* 太字に設定 */
+    text-align: center; /* テキストを中央揃えに */
+    margin: 20px 0; /* 上下の余白 */
+}
+
+.thema {
+    font-size: 2.5em; /* より大きなフォントサイズ */
+}
+
+.message {
+    font-size: 2em; /* 大きなフォントサイズ */
+    margin-bottom: 40px;
+}
+
+.button {
+    background-color: white; /* ボタンの背景色を白に */
+    color: #0ad2ed; /* ボタンの文字色を背景と同じ色に */
+    border: none; /* ボーダーなし */
+    padding: 10px 20px; /* パディングを設定 */
+    font-size: 1.2em; /* 文字のサイズを大きく */
+    border-radius: 5px; /* ボタンの角を丸く */
+    cursor: pointer; /* カーソルをポインターに */
+    font-weight: bold; /* 文字を太字に */
+    transition: background-color 0.3s, color 0.3s; /* 色の変化にアニメーションを適用 */
+}
+
+.button:hover {
+    border: 2px solid white;
+    background-color: #0ad2ed; /* ホバー時の背景色を変更 */
+    color: white; /* ホバー時の文字色を白に */
+}

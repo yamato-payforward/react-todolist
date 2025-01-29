@@ -1,0 +1,132 @@
+/* src/app/todolist/page.module.css */
+.appContainer {
+    display: flex;
+    height: 100vh;
+    color: #ffffff;
+    background-color: #0ad2ed;
+}
+
+.sidebar {
+    flex: 2;
+    background-color: #0ad2ed;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   
+}
+
+.profileContainer{
+    display: flex;
+}
+
+.userName {
+    font-size: 24px;
+}
+
+.mainContent {
+    flex: 8;
+    background-color: white;
+    padding: 20px;
+    color: #0ad2ed;
+}
+
+.title {
+    text-align: center;
+    color: #0ad2ed;
+}
+
+.inputContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #0ad2ed; /* デフォルトのボーダーカラー */
+    border-radius: 4px;
+    color: #0ad2ed;
+    background-color: white;
+    transition: border-color 0.3s; /* スムーズな色変化のためのトランジション */
+}
+
+.input:focus {
+    outline: none; /* デフォルトのフォーカスリングを無効にする */
+}
+
+
+
+.addButton {
+    padding: 10px 20px;
+    background-color: #0ad2ed;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+}
+
+.addButton:hover {
+    background-color: #09b1d2;
+}
+
+.taskList {
+    list-style: none;
+    padding: 0;
+}
+
+.task {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #d7faff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: #0ad2ed;
+    font-size: 20px;
+}
+
+.checkbox {
+    margin-right: 10px;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border: 2px solid #0ad2ed;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    position: relative;
+}
+
+.profileImage {
+    width:40px;
+    height: 40px;
+    border-radius: 50%; /* 画像を円形にする */
+    object-fit: cover;
+    border: 1px white solid;
+  }
+  
+  .name {
+    line-height: 40px;
+    margin-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: 800;
+    text-overflow: ellipsis; /* 長いテキストの省略表示 */
+  }
+  
+  .additionalImage {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    margin-top: 5px;
+  }
+
+
+
+
