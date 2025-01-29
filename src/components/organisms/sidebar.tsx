@@ -6,25 +6,20 @@ import avatar from "../../images/avatar.png";
 import sidebarOpenImage from "../../images/sidebar_open.png";
 import sidebarCloseImage from "../../images/sidebar_close.png";
 
-const Sidebar = ({ isSidebarOpen, setSidebarOpen }) => {
-  const sidebarVariants = {
-    open: { x: 0, opacity: 1, transition: { type: 'spring', stiffness: 50 } },
-    closed: { x: '-100%', opacity: 0, transition: { type: 'spring', stiffness: 50 } }
-  };
+const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
 
-  // サイドバーの開閉をトグルする関数
-  const toggleSidebar = () => {
-    setSidebarOpen(!isSidebarOpen);
-  };
 
   return (
     <>
-      {isSidebarOpen && (
         <motion.aside
           className={styles.sidebar}
-          variants={sidebarVariants}
-          initial="closed"
-          animate={isSidebarOpen ? "open" : "closed"}
+          initial={{ x: "-80%" }} // 初期位置を画面外の左側に設定
+          animate={{ x: isSidebarOpen ? "0%" : "-80%" }} //
+          transition={{
+            type: "tween",
+            duration: 0.3,
+            ease: "easeInOut",
+          }}
         >
           <div className={styles.profileContainer}>
             <Image
@@ -45,17 +40,9 @@ const Sidebar = ({ isSidebarOpen, setSidebarOpen }) => {
               className={styles.additionalImage} />
           </button>
         </motion.aside>
-      )}
-      {!isSidebarOpen && (
-        <button onClick={toggleSidebar} className={styles.openButton}>
-          <Image
-            src={sidebarOpenImage}
-            alt="Open Sidebar"
-            width={50}
-            height={50}
-            className={styles.additionalImage} />
-        </button>
-      )}
+      
+      
+      
     </>
   );
 };

@@ -2,20 +2,35 @@
 import styles from './../../app/todolist/page.module.css';
 import { motion } from 'framer-motion';
 
-const Todolist = ({ input, handleRemoveTask, isOpenTodolist, setInput, handleAddTask, tasks }) => {
+const Todolist = ({ input, handleRemoveTask, setInput, handleAddTask, tasks, isSidebarOpen }) => {
 
+   
     const todolistVariants = {
-        open: { x: 0, opacity: 1, transition: { type: 'spring', stiffness: 40 } },
-        closed: { x: '100%', opacity: 0.8, transition: { type: 'spring', stiffness: 40 } }
+        open: { 
+            x: 0, 
+            width: 'calc(100% - 250px)', // サイドバーが開いている時の幅
+            opacity: 1, 
+            transition: { type: 'spring', stiffness: 40 }
+        },
+        closed: { 
+            x: 0, // ここを調整して閉じたときにどの程度左に移動するか
+            width: '100%', // サイドバーが閉じている時の幅
+            opacity: 1, 
+            transition: { type: 'spring', stiffness: 40 }
+        }
     };
 
     return (
         <motion.main
-            className={styles.mainContent}
-            variants={todolistVariants}
-            initial="closed"
-            animate={isOpenTodolist ? "open" : "closed"}
-        >
+        className={styles.mainContent}
+        initial={{ x: "100%" }} // 初期位置を画面外の左側に設定
+          animate={{ x: isSidebarOpen ? "0%" : "-20%" }} //
+          transition={{
+            type: "tween",
+            duration: 0.3,
+            ease: "easeInOut",
+          }}
+    >
             <div className={styles.inputContainer}>
                 <input
                     type="text"
