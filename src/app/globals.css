@@ -19,3 +19,11 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+input:focus {
+  outline: none; /* デフォルトのフォーカスリングを無効にする */
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--success {
+  background: var(--background) !important;
+}

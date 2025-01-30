@@ -1,0 +1,66 @@
+/* modal.module.css */
+
+.modal {
+    position: fixed;
+    top: 10%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #0ad2ed;
+  }
+  
+  .modalContent {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* 画像を円形にする */
+    margin-bottom: 20px;
+    object-fit: cover;
+  }
+  
+  .usernameInput {
+    width: 80%; /* 入力フォームの幅 */
+    font-size: 16px;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 2px solid #0ad2ed; /* ボーダーカラー */
+    border-radius: 4px;
+    color: #0ad2ed; /* テキストカラー */
+    background-color: white;
+  }
+  
+  .changeButton {
+    padding: 10px 20px;
+    background-color: #0ad2ed;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  

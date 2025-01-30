@@ -14,13 +14,19 @@
     flex: 2;
     background-color: #0ad2ed;
     padding: 20px;
-    display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
 }
 
 .profileContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start; 
+}
+
+.avatarContainer{
     display: flex;
 }
 
@@ -57,9 +63,6 @@
     transition: border-color 0.3s; /* スムーズな色変化のためのトランジション */
 }
 
-.input:focus {
-    outline: none; /* デフォルトのフォーカスリングを無効にする */
-}
 
 
 
@@ -114,6 +117,12 @@
     object-fit: cover;
     border: 1px white solid;
   }
+
+  .iconImage{
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+  }
   
   .name {
     line-height: 40px;
@@ -131,6 +140,28 @@
     margin-top: 5px;
   }
 
+.navigation {
+   margin-top: 40px; 
+   font-weight: 800; 
+}
 
+.navItemContainer{
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+}
 
+.navItemContainer:hover {
+ background-color: #38e0f6;
+ padding: 10px;
+}
+
+.close{
+    color: red
+}
+
+.removedTasksTitle{
+    font-weight: 800;
+    margin-bottom: 20px;
+}
 
