@@ -19,7 +19,7 @@ const Sidebar = ({logOut, setTasksFromRemovedTasks,changeTaskVisible, isSidebarO
     { id: 4, imgSrc: exit, name: "ログアウト" }
   ];
 
-  const handleItemClick = (item: {}) => {
+  const handleItemClick = (item) => {
     if(item.name == "ポートフォリオ概要"){
       modalOpen(true);
     }else if (item.name == "完了したタスク"){

@@ -3,17 +3,7 @@ import styles from './modal.module.css';
 import Image from "next/image";
 import avatar from "../../images/avatar.png";
 
-const Modal = ({ modalIsOpen, modalOpen, username }) => {
-
-    const handleUsernameChange = () => {
-    };
-
-
-    const handleSubmit = () => {
-    };
-
-
-
+const Modal = ({ modalIsOpen, modalOpen }) => {
   return (
     <>
       <AnimatePresence>

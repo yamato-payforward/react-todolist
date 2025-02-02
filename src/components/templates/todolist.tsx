@@ -4,23 +4,6 @@ import { motion } from 'framer-motion';
 import Tasks from "../organisms/tasks"
 
 const Todolist = ({ input,moveRemovedTaskToOnGoingTasks, handleRemoveTask, setInput, handleAddTask, tasks, isSidebarOpen,taskVisible }) => {
-
-
-    const todolistVariants = {
-        open: {
-            x: 0,
-            width: 'calc(100% - 250px)', // サイドバーが開いている時の幅
-            opacity: 1,
-            transition: { type: 'spring', stiffness: 40 }
-        },
-        closed: {
-            x: 0, // ここを調整して閉じたときにどの程度左に移動するか
-            width: '100%', // サイドバーが閉じている時の幅
-            opacity: 1,
-            transition: { type: 'spring', stiffness: 40 }
-        }
-    };
-
     return (
         <motion.main
             className={styles.mainContent}

@@ -16,7 +16,6 @@ const ToDoList = () => {
     const [onGoingTasks, setOnGoingTasks] = useState([]);
     const [removedTasks, setRemovedTasks] = useState([]);
     const [input, setInput] = useState('');
-    const [isTodolistOpen, setTodolistOpen] = useState(false);
     const [isSidebarOpen, setSidebarOpen] = useState(true);
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [taskVisible, setTaskVisible] = useState(true);

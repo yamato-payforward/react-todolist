@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image'
 import { auth } from '../../lib/firebase'
-import { signInAnonymously, getAuth } from 'firebase/auth'
+import { signInAnonymously} from 'firebase/auth'
 
 
 const Welcome = () => {
