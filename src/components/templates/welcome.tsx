@@ -28,6 +28,7 @@ const Welcome = () => {
         }
     }
     if (!isLoading) {
+        debugger
         return (
             <motion.main
                 className={styles.container}
@@ -35,6 +36,7 @@ const Welcome = () => {
                 animate={{ opacity: 1 }} // アニメーション後は完全に不透明に設定
                 transition={{ duration: 2, delay: 1 }} // トランジションの時間と遅延を設定
             >
+
                 <h1 className={styles.thema}>あなたの予定をスマートに管理する</h1>
                 <h2 className={styles.message}>さあ始めよう！</h2>
                 <button className={styles.button} onClick={handleAnonymousSignIn}>始める(匿名ログイン) </button>
