@@ -63,4 +63,10 @@
     border-radius: 4px;
     cursor: pointer;
   }
+
+  .profileContent{
+    font-weight: 800;;
+    color: #0ad2ed;
+    margin-bottom: 20px;
+  }
   

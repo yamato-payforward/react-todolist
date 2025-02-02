@@ -13,14 +13,14 @@ import task from "../../images/task.png";
 const Sidebar = ({logOut, setTasksFromRemovedTasks,changeTaskVisible, isSidebarOpen, toggleSidebar, modalOpen, setRemovedTasksFromTasks }) => {
 
   const navItems = [
-    { id: 1, imgSrc: user, name: "プロフィール編集" },
+    { id: 1, imgSrc: user, name: "ポートフォリオ概要" },
     { id: 2, imgSrc: task, name: "タスク" },
     { id: 3, imgSrc: checked, name: "完了したタスク" },
     { id: 4, imgSrc: exit, name: "ログアウト" }
   ];
 
   const handleItemClick = (item: {}) => {
-    if(item.name == "プロフィール編集"){
+    if(item.name == "ポートフォリオ概要"){
       modalOpen(true);
     }else if (item.name == "完了したタスク"){
       setRemovedTasksFromTasks();

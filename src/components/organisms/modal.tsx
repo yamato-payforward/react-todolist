@@ -26,15 +26,11 @@ const Modal = ({ modalIsOpen, modalOpen, username }) => {
             className={styles.modal}
           >
           <div className={styles.modalContent}>
-              <button className={styles.close} onClick={() => modalOpen(false)}>✖️</button>
               <Image src={avatar} width={100} height={100} alt="Avatar" className={styles.avatar} />
-              <input
-                type="text"
-                value={username}
-                onChange={handleUsernameChange}
-                className={styles.usernameInput}
-              />
-              <button onClick={handleSubmit} className={styles.changeButton}>変更</button>
+              <p className={styles.profileContent }>
+                これはポートフォリオです。<br/>フロントをReact.js(Next.js)、サーバーをfirebaseで作成しました。
+              </p>
+              <button onClick={() => modalOpen(false)} className={styles.changeButton}>戻る</button>
             </div>
           </motion.div>
         )}

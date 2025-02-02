@@ -38,3 +38,12 @@
     background-color: #0ad2ed; /* ホバー時の背景色を変更 */
     color: white; /* ホバー時の文字色を白に */
 }
+
+
+.loading{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+
+}
+
