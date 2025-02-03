@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Flip, ToastContainer } from "react-toastify";
 
 export default function Toast(
-  { children }: {children: React.ReactNode;}) {
+  { children }: { children: React.ReactNode; }) {
 
   return (
     <>

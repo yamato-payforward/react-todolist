@@ -1,13 +1,13 @@
 .opening {
-    width: 100%;
-    height: 100vh;
-    background-color: #0ad2ed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	width: 100%;
+	height: 100vh;
+	background-color: #0ad2ed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .logo {
-    width: 200px;
-    height: 200px;
+	width: 200px;
+	height: 200px;
 }

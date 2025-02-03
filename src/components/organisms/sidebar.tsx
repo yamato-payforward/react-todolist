@@ -13,15 +13,15 @@ import task from "../../images/task.png";
 
 interface SidebarProps {
   logOut: () => void;
-  setTasksFromRemovedTasks: () => void; 
-  changeTaskVisible: (visible: boolean) => void; 
-  isSidebarOpen: boolean; 
+  setTasksFromRemovedTasks: () => void;
+  changeTaskVisible: (visible: boolean) => void;
+  isSidebarOpen: boolean;
   toggleSidebar: () => void;
   modalOpen: (isOpen: boolean) => void;
-  setRemovedTasksFromTasks: () => void; 
+  setRemovedTasksFromTasks: () => void;
 }
 
-interface NavItem{
+interface NavItem {
   id: number,
   imgSrc: StaticImageData,
   name: string
@@ -35,7 +35,7 @@ const Sidebar = ({
   toggleSidebar,
   modalOpen,
   setRemovedTasksFromTasks
-}:SidebarProps) => {
+}: SidebarProps) => {
 
   const navItems = [
     { id: 1, imgSrc: user, name: "ポートフォリオ概要" },
@@ -44,18 +44,18 @@ const Sidebar = ({
     { id: 4, imgSrc: exit, name: "ログアウト" }
   ];
 
-  const handleItemClick = (item: NavItem ) => {
-    if(item.name == "ポートフォリオ概要"){
+  const handleItemClick = (item: NavItem) => {
+    if (item.name == "ポートフォリオ概要") {
       modalOpen(true);
-    }else if (item.name == "完了したタスク"){
+    } else if (item.name == "完了したタスク") {
       setRemovedTasksFromTasks();
       changeTaskVisible(false)
       modalOpen(false);
-    }else if (item.name == "タスク"){
+    } else if (item.name == "タスク") {
       setTasksFromRemovedTasks();
       changeTaskVisible(true)
       modalOpen(false);
-    }else{
+    } else {
       logOut();
     }
   };
@@ -64,8 +64,8 @@ const Sidebar = ({
     <>
       <motion.aside
         className={styles.sidebar}
-        initial={{ x: "-80%" }} 
-        animate={{ x: isSidebarOpen ? "0%" : "-80%" }} 
+        initial={{ x: "-80%" }}
+        animate={{ x: isSidebarOpen ? "0%" : "-80%" }}
         transition={{
           type: "tween",
           duration: 0.3,
@@ -85,7 +85,7 @@ const Sidebar = ({
           </div>
           <button onClick={toggleSidebar}>
             <Image
-              src={isSidebarOpen ? sidebarCloseImage : sidebarOpenImage} 
+              src={isSidebarOpen ? sidebarCloseImage : sidebarOpenImage}
               alt="Close Sidebar"
               width={50}
               height={50}

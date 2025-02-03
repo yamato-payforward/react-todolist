@@ -20,10 +20,10 @@ const Modal = ({ modalIsOpen, modalOpen }: ModalProps) => {
             transition={{ duration: 0.5, ease: "easeInOut" }}
             className={styles.modal}
           >
-          <div className={styles.modalContent}>
+            <div className={styles.modalContent}>
               <Image src={avatar} width={100} height={100} alt="Avatar" className={styles.avatar} />
-              <p className={styles.profileContent }>
-                これはポートフォリオです。<br/>フロントをReact.js(Next.js)、サーバーをfirebaseで作成しました。
+              <p className={styles.profileContent}>
+                これはポートフォリオです。<br />フロントをReact.js(Next.js)、サーバーをfirebaseで作成しました。
               </p>
               <button onClick={() => modalOpen(false)} className={styles.changeButton}>戻る</button>
             </div>

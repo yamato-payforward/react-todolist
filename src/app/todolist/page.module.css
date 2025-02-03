@@ -1,167 +1,170 @@
-/* src/app/todolist/page.module.css */
 .appContainer {
-    display: flex;
-    height: 100vh;
-    color: #ffffff;
-    background-color: white;
+  display: flex;
+  height: 100vh;
+  color: #ffffff;
+  background-color: white;
 }
 
-.bgwhite{
-    background-color: white;;
+.bgwhite {
+  background-color: white;
+  ;
 }
 
 .sidebar {
-    flex: 2;
-    background-color: #0ad2ed;
-    padding: 20px;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
+  flex: 2;
+  background-color: #0ad2ed;
+  padding: 20px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-.profileContainer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start; 
+.profileContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-.avatarContainer{
-    display: flex;
+.avatarContainer {
+  display: flex;
 }
 
 .userName {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .mainContent {
-    flex: 8;
-    background-color: white;
-    padding: 20px;
-    color: #0ad2ed;
+  flex: 8;
+  background-color: white;
+  padding: 20px;
+  color: #0ad2ed;
 }
 
 .title {
-    text-align: center;
-    color: #0ad2ed;
+  text-align: center;
+  color: #0ad2ed;
 }
 
 .inputContainer {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .input {
-    flex: 1;
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #0ad2ed; /* デフォルトのボーダーカラー */
-    border-radius: 4px;
-    color: #0ad2ed;
-    background-color: white;
-    transition: border-color 0.3s; /* スムーズな色変化のためのトランジション */
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #0ad2ed;
+  /* デフォルトのボーダーカラー */
+  border-radius: 4px;
+  color: #0ad2ed;
+  background-color: white;
+  transition: border-color 0.3s;
+  /* スムーズな色変化のためのトランジション */
 }
 
 
 
 
 .addButton {
-    padding: 10px 20px;
-    background-color: #0ad2ed;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #0ad2ed;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 10px;
 }
 
 .addButton:hover {
-    background-color: #09b1d2;
+  background-color: #09b1d2;
 }
 
 .taskList {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .task {
-    padding: 10px;
-    margin: 5px 0;
-    background-color: #d7faff;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    color: #0ad2ed;
-    font-size: 20px;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #d7faff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #0ad2ed;
+  font-size: 20px;
 }
 
 .checkbox {
-    margin-right: 10px;
-    appearance: none;
-    -webkit-appearance: none;
-    width: 15px;
-    height: 15px;
-    background-color: white;
-    border: 2px solid #0ad2ed;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
-    position: relative;
+  margin-right: 10px;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  border: 2px solid #0ad2ed;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  position: relative;
 }
 
 .profileImage {
-    width:40px;
-    height: 40px;
-    border-radius: 50%; /* 画像を円形にする */
-    object-fit: cover;
-    border: 1px white solid;
-  }
-
-  .iconImage{
-    width: 25px;
-    height: 25px;
-    object-fit: cover;
-  }
-  
-  .name {
-    line-height: 40px;
-    margin-left: 10px;
-    white-space: nowrap;
-    overflow: hidden;
-    font-weight: 800;
-    text-overflow: ellipsis; /* 長いテキストの省略表示 */
-  }
-  
-  .additionalImage {
-    width: 30px;
-    height: 30px;
-    object-fit: cover;
-    margin-top: 5px;
-  }
-
-.navigation {
-   margin-top: 40px; 
-   font-weight: 800; 
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* 画像を円形にする */
+  object-fit: cover;
+  border: 1px white solid;
 }
 
-.navItemContainer{
-    display: flex;
-    margin-bottom: 10px;
-    align-items: center;
+.iconImage {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+}
+
+.name {
+  line-height: 40px;
+  margin-left: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  /* 長いテキストの省略表示 */
+}
+
+.additionalImage {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  margin-top: 5px;
+}
+
+.navigation {
+  margin-top: 40px;
+  font-weight: 800;
+}
+
+.navItemContainer {
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
 }
 
 .navItemContainer:hover {
- background-color: #38e0f6;
- padding: 10px;
+  background-color: #38e0f6;
+  padding: 10px;
 }
 
-.close{
-    color: red
+.close {
+  color: red
 }
 
-.removedTasksTitle{
-    font-weight: 800;
-    margin-bottom: 20px;
+.removedTasksTitle {
+  font-weight: 800;
+  margin-bottom: 20px;
 }
-
