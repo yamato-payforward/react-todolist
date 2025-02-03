@@ -1,14 +1,30 @@
 'use client'
 import styles from './../../app/todolist/page.module.css';
 import { motion } from 'framer-motion';
-import Tasks from "../organisms/tasks"
+import Tasks from "../organisms/tasks";
 
-const Todolist = ({ input,moveRemovedTaskToOnGoingTasks, handleRemoveTask, setInput, handleAddTask, tasks, isSidebarOpen,taskVisible }) => {
+interface Task {
+    id: string |  null;
+    content: string;
+  }
+  
+  interface TodolistProps {
+    input: string; 
+    moveRemovedTaskToOnGoingTasks: (index: number) => void; 
+    handleRemoveTask: (index: number) => void; 
+    setInput: (input: string) => void;
+    handleAddTask: () => void; 
+    tasks: Task[]; 
+    isSidebarOpen: boolean; 
+    taskVisible: boolean; 
+  }
+
+const Todolist = ({ input,moveRemovedTaskToOnGoingTasks, handleRemoveTask, setInput, handleAddTask, tasks, isSidebarOpen,taskVisible }: TodolistProps) => {
     return (
         <motion.main
             className={styles.mainContent}
-            initial={{ x: "100%" }} // 初期位置を画面外の左側に設定
-            animate={{ x: isSidebarOpen ? "0%" : "-20%" }} //
+            initial={{ x: "100%" }} 
+            animate={{ x: isSidebarOpen ? "0%" : "-20%" }} 
             transition={{
                 type: "tween",
                 duration: 0.3,

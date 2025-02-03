@@ -12,41 +12,47 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { query, where, getDocs, updateDoc } from 'firebase/firestore';
 
 const ToDoList = () => {
-    const [tasks, setTasks] = useState([]);
-    const [onGoingTasks, setOnGoingTasks] = useState([]);
-    const [removedTasks, setRemovedTasks] = useState([]);
+
+    interface Task {
+        id: string |  null;
+        content: string;
+    }
+
+    const [tasks, setTasks] = useState<Task[]>([]);
+    const [onGoingTasks, setOnGoingTasks] = useState<Task[]>([]);
+    const [removedTasks, setRemovedTasks] = useState<Task[]>([]);
     const [input, setInput] = useState('');
     const [isSidebarOpen, setSidebarOpen] = useState(true);
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [taskVisible, setTaskVisible] = useState(true);
-  
-    const addTodoToFirebase = async (input) => {
-        const user = getAuth().currentUser; // 現在のユーザーを取得
+
+    const addTodoToFirebase = async (input: string) => {
+        const user = getAuth().currentUser; 
         if (user) {
             try {
                 const docRef = await addDoc(collection(db, "todos"), {
                     content: input,
                     completed: false,
                     createdAt: serverTimestamp(),
-                    userId: user.uid, // ユーザーID
+                    userId: user.uid, 
                 });
-                return docRef.id; // ドキュメントのIDを返す
+                return docRef.id; 
             } catch (error) {
                 console.error("Error adding document: ", error);
             }
         } else {
             console.error("No user logged in");
         }
-        return null; // ユーザーがログインしていない場合、またはエラーが発生した場合は null を返す
+        return null;
     };
-    
+
 
     const handleAddTask = async () => {
         if (input) {
-            const id = await addTodoToFirebase(input); 
-        
-            setTasks([...tasks, {id: id, content: input }]);
-            setOnGoingTasks([...tasks,  {id: id, content: input }]);
+            const id = await addTodoToFirebase(input);
+
+            setTasks([...tasks, { id: id, content: input }]);
+            setOnGoingTasks([...tasks, { id: id, content: input }]);
             setInput('');
             toast.success("タスクを追加しました")
 
@@ -71,12 +77,11 @@ const ToDoList = () => {
                     const onGoingTaskSnapshot = await getDocs(onGoingTsksQuery)
                     const onGoingTasks = onGoingTaskSnapshot.docs.map(doc => ({
                         id: doc.id,
-                        ...doc.data()
+                        content: doc.data().content
                     }));
+                    setTasks(onGoingTasks);
+                    setOnGoingTasks(onGoingTasks);
                     debugger
-                    const onGoingTaskArr = onGoingTasks.map(item => ({ id: item.id, content: item.content }));
-                    setTasks(onGoingTaskArr);
-                    setOnGoingTasks(onGoingTaskArr);
 
 
                     const removedTaskSnapshot = await getDocs(removedTsksQuery)
@@ -92,12 +97,12 @@ const ToDoList = () => {
                 }
             } else {
                 console.error("No user logged in");
-                setTasks([]); // ログインしていない場合はタスクをクリア
+                setTasks([]); 
             }
         });
 
-        return () => unsubscribe(); // コンポーネントのアンマウント時にリスナーを解除
-    }, [auth]); // auth を依存配列に追加して、authオブジェクトの変更時にも実行されるようにする    
+        return () => unsubscribe();
+    }, [auth]);    
 
 
     const setRemovedTasksFromTasks = () => {
@@ -117,12 +122,18 @@ const ToDoList = () => {
         setTaskVisible(visible);
     };
 
-    const handleRemoveTask = async (index) => {
+    const handleRemoveTask = async (index: number) => {
         const taskToRemove = tasks[index];
         const newTasks = tasks.filter((_, taskIndex) => taskIndex !== index);
-    debugger
-        // Firestorejのドキュメントを更新
-        const taskDocRef = doc(db, "todos", taskToRemove.id); // 'todos'コレクションの対象ドキュメントへの参照
+        let taskDocRef;
+        
+        if (taskToRemove.id !== null) {
+             taskDocRef = doc(db, "todos", taskToRemove.id);
+            
+          } else {
+            console.error('Task ID is null and cannot retrieve document reference.');
+            return null;
+          }
         try {
             await updateDoc(taskDocRef, {
                 completed: true
@@ -141,25 +152,31 @@ const ToDoList = () => {
         setModalIsOpen(flug);
     };
 
-    const moveRemovedTaskToOnGoingTasks = async (index) => {
-        const taskToMove = removedTasks[index];  // 完了済みタスクリストからタスクを取得
-        const newRemovedTasks = removedTasks.filter((_, taskIndex) => taskIndex !== index);  // タスクをリストから削除
-        const taskDocRef = doc(db, "todos", taskToMove.id);  // 対象ドキュメントへの参照を取得
-    
+    const moveRemovedTaskToOnGoingTasks = async (index: number) => {
+        const taskToMove = removedTasks[index]; 
+        const newRemovedTasks = removedTasks.filter((_, taskIndex) => taskIndex !== index); 
+        let taskDocRef;
+        if (taskToMove.id !== null) {
+           taskDocRef = doc(db, "todos", taskToMove.id);
+        } else {
+            console.error('Task ID is null and cannot retrieve document reference.');
+            return null;
+          }
+
         try {
             await updateDoc(taskDocRef, {
-                completed: false  // Firestore でのドキュメントを更新
+                completed: false  
             });
             setTasks(newRemovedTasks);
-            setRemovedTasks(newRemovedTasks);  // ローカルの状態を更新
-            setOnGoingTasks([...onGoingTasks, taskToMove]);  // タスクを進行中リストに追加
+            setRemovedTasks(newRemovedTasks);  
+            setOnGoingTasks([...onGoingTasks, taskToMove]); 
             toast.success("タスクを戻しました");
         } catch (error) {
             console.error("Error updating document: ", error);
             toast.error("タスクの移動に失敗しました");
         }
     };
-    
+
 
     const logOut = async () => {
         try {

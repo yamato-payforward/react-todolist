@@ -9,7 +9,6 @@ const Opening = () => {
     const [isVisible, setIsVisible] = useState(true);
 
     useEffect(() => {
-        // 1.5秒後にフェードアウト
         const timer = setTimeout(() => {
             setIsVisible(false);
         }, 1300);
@@ -36,7 +35,7 @@ const Opening = () => {
             </motion.div>
         );
     } else {
-        return null; // isVisible が false の場合は何も表示しない
+        return null; 
     }
 }
 

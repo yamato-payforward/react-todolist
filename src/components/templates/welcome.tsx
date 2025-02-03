@@ -14,13 +14,8 @@ const Welcome = () => {
             setIsLoading(true);
             const userCredential = await signInAnonymously(auth)
             const token = await userCredential.user.getIdToken()
-
-            // トークンをクッキーに保存
             document.cookie = `firebase-token=${token}; path=/`
-
-            // ダッシュボードなどにリダイレクト
             window.location.href = '/todolist'
-
             setIsLoading(false);
 
         } catch (error) {
@@ -32,9 +27,9 @@ const Welcome = () => {
         return (
             <motion.main
                 className={styles.container}
-                initial={{ opacity: 0 }} // 初期状態を完全に透明に設定
-                animate={{ opacity: 1 }} // アニメーション後は完全に不透明に設定
-                transition={{ duration: 2, delay: 1 }} // トランジションの時間と遅延を設定
+                initial={{ opacity: 0 }} 
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2, delay: 1 }} 
             >
 
                 <h1 className={styles.thema}>あなたの予定をスマートに管理する</h1>

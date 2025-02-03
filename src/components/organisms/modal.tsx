@@ -3,7 +3,12 @@ import styles from './modal.module.css';
 import Image from "next/image";
 import avatar from "../../images/avatar.png";
 
-const Modal = ({ modalIsOpen, modalOpen }) => {
+interface ModalProps {
+  modalIsOpen: boolean;
+  modalOpen: (isOpen: boolean) => void;
+}
+
+const Modal = ({ modalIsOpen, modalOpen }: ModalProps) => {
   return (
     <>
       <AnimatePresence>

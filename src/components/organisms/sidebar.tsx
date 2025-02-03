@@ -10,7 +10,31 @@ import exit from "../../images/exit.png";
 import checked from "../../images/checked.png";
 import task from "../../images/task.png";
 
-const Sidebar = ({logOut, setTasksFromRemovedTasks,changeTaskVisible, isSidebarOpen, toggleSidebar, modalOpen, setRemovedTasksFromTasks }) => {
+interface SidebarProps {
+  logOut: () => void;
+  setTasksFromRemovedTasks: () => void; 
+  changeTaskVisible: (visible: boolean) => void; 
+  isSidebarOpen: boolean; // 
+  toggleSidebar: () => void;
+  modalOpen: (isOpen: boolean) => void;
+  setRemovedTasksFromTasks: () => void; 
+}
+
+interface NavItem{
+  id: number,
+  imcSrc: string,
+  name: string
+}
+
+const Sidebar = ({
+  logOut,
+  setTasksFromRemovedTasks,
+  changeTaskVisible,
+  isSidebarOpen,
+  toggleSidebar,
+  modalOpen,
+  setRemovedTasksFromTasks
+}:SidebarProps) => {
 
   const navItems = [
     { id: 1, imgSrc: user, name: "ポートフォリオ概要" },
@@ -19,7 +43,7 @@ const Sidebar = ({logOut, setTasksFromRemovedTasks,changeTaskVisible, isSidebarO
     { id: 4, imgSrc: exit, name: "ログアウト" }
   ];
 
-  const handleItemClick = (item) => {
+  const handleItemClick = (item: NavItem ) => {
     if(item.name == "ポートフォリオ概要"){
       modalOpen(true);
     }else if (item.name == "完了したタスク"){
@@ -39,8 +63,8 @@ const Sidebar = ({logOut, setTasksFromRemovedTasks,changeTaskVisible, isSidebarO
     <>
       <motion.aside
         className={styles.sidebar}
-        initial={{ x: "-80%" }} // 初期位置を画面外の左側に設定
-        animate={{ x: isSidebarOpen ? "0%" : "-80%" }} //
+        initial={{ x: "-80%" }} 
+        animate={{ x: isSidebarOpen ? "0%" : "-80%" }} 
         transition={{
           type: "tween",
           duration: 0.3,
