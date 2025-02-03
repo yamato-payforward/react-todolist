@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styles from '../../app/todolist/page.module.css';
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import avatar from "../../images/avatar.png";
 import sidebarOpenImage from "../../images/sidebar_open.png";
 import sidebarCloseImage from "../../images/sidebar_close.png";
@@ -10,11 +10,12 @@ import exit from "../../images/exit.png";
 import checked from "../../images/checked.png";
 import task from "../../images/task.png";
 
+
 interface SidebarProps {
   logOut: () => void;
   setTasksFromRemovedTasks: () => void; 
   changeTaskVisible: (visible: boolean) => void; 
-  isSidebarOpen: boolean; // 
+  isSidebarOpen: boolean; 
   toggleSidebar: () => void;
   modalOpen: (isOpen: boolean) => void;
   setRemovedTasksFromTasks: () => void; 
@@ -22,7 +23,7 @@ interface SidebarProps {
 
 interface NavItem{
   id: number,
-  imcSrc: string,
+  imgSrc: StaticImageData,
   name: string
 }
 
