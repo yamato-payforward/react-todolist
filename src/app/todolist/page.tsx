@@ -81,13 +81,11 @@ const ToDoList = () => {
                     }));
                     setTasks(onGoingTasks);
                     setOnGoingTasks(onGoingTasks);
-                    debugger
-
 
                     const removedTaskSnapshot = await getDocs(removedTsksQuery)
                     const removedTasks = removedTaskSnapshot.docs.map(doc => ({
                         id: doc.id,
-                        ...doc.data()
+                        content: doc.data().content
                     }));
                     const removedTaskArr = removedTasks.map(item => ({ id: item.id, content: item.content }));
                     setRemovedTasks(removedTaskArr);

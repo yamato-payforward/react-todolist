@@ -23,7 +23,6 @@ const Welcome = () => {
         }
     }
     if (!isLoading) {
-        debugger
         return (
             <motion.main
                 className={styles.container}
